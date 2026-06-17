@@ -1,0 +1,116 @@
+import time
+import random
+
+# NEET Biology MCQ Practice App
+
+questions = [
+    {
+        "question": "Who is known as the Father of Taxonomy?",
+        "options": ["A. Ernst Mayr", "B. Charles Darwin", "C. Carl Linnaeus", "D. Aristotle"],
+        "answer": "C"
+    },
+    {
+        "question": "The scientific name of mango is:",
+        "options": ["A. Mangifera indica", "B. Musa paradisiaca", "C. Oryza sativa", "D. Triticum aestivum"],
+        "answer": "A"
+    },
+    {
+        "question": "Study of insects is called:",
+        "options": ["A. Ichthyology", "B. Entomology", "C. Herpetology", "D. Ornithology"],
+        "answer": "B"
+    },
+    {
+        "question": "Who proposed the Biological Species Concept?",
+        "options": ["A. Carl Linnaeus", "B. Ernst Mayr", "C. Darwin", "D. Lamarck"],
+        "answer": "B"
+    },
+    {
+        "question": "Herbarium is a:",
+        "options": ["A. Museum of animals", "B. Botanical garden", "C. Collection of preserved plant specimens", "D. Zoo"],
+        "answer": "C"
+    },
+    {
+        "question": "Which kingdom includes bacteria?",
+        "options": ["A. Plantae", "B. Animalia", "C. Monera", "D. Protista"],
+        "answer": "C"
+    },
+    {
+        "question": "Cell wall of plants is mainly made of:",
+        "options": ["A. Chitin", "B. Cellulose", "C. Protein", "D. Starch"],
+        "answer": "B"
+    },
+    {
+        "question": "Powerhouse of the cell is:",
+        "options": ["A. Nucleus", "B. Ribosome", "C. Mitochondria", "D. Golgi body"],
+        "answer": "C"
+    },
+    {
+        "question": "DNA stands for:",
+        "options": ["A. Deoxyribonucleic Acid", "B. Dinitro Acid", "C. Double Nucleic Acid", "D. None"],
+        "answer": "A"
+    },
+    {
+        "question": "Basic unit of life is:",
+        "options": ["A. Organ", "B. Tissue", "C. Cell", "D. Organism"],
+        "answer": "C"
+    }
+]
+
+random.shuffle(questions)
+
+score = 0
+
+print("=" * 50)
+print("      NEET BIOLOGY MCQ PRACTICE APP")
+print("=" * 50)
+
+name = input("Enter your name: ")
+
+start_time = time.time()
+
+for i, q in enumerate(questions, start=1):
+    print(f"\nQuestion {i}")
+    print(q["question"])
+
+    for option in q["options"]:
+        print(option)
+
+    user_answer = input("Enter your answer (A/B/C/D): ").upper()
+
+    if user_answer == q["answer"]:
+        print("✅ Correct!")
+        score += 1
+    else:
+        print(f"❌ Wrong! Correct answer is {q['answer']}")
+
+total_questions = len(questions)
+percentage = (score / total_questions) * 100
+
+end_time = time.time()
+time_taken = end_time - start_time
+
+wrong = total_questions - score
+
+print("\n" + "=" * 50)
+print("RESULT")
+print("=" * 50)
+
+print(f"Student: {name}")
+print(f"Score: {score}/{total_questions}")
+print(f"Correct Answers: {score}")
+print(f"Wrong Answers: {wrong}")
+print(f"Percentage: {percentage:.2f}%")
+print(f"Time Taken: {time_taken:.2f} seconds")
+
+if percentage >= 90:
+    print("🏆 Grade: A+")
+elif percentage >= 75:
+    print("🥇 Grade: A")
+elif percentage >= 60:
+    print("🥈 Grade: B")
+elif percentage >= 40:
+    print("🥉 Grade: C")
+else:
+    print("📚 Grade: Needs Improvement")
+
+print("\nThank you for using the NEET Biology MCQ Practice App!")
